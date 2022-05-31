@@ -518,7 +518,8 @@ gdjs.GameCode.condition1IsTrue_0.val = gdjs.evtTools.object.getSceneInstancesCou
 if (gdjs.GameCode.condition1IsTrue_0.val) {
 gdjs.GameCode.GDJoystickOuterObjects3.length = 0;
 
-{gdjs.evtTools.object.createObjectOnScene((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : runtimeScene), gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDJoystickOuterObjects3Objects, gdjs.evtTools.input.getTouchX(runtimeScene, 0, "UI", 0), gdjs.evtTools.input.getTouchY(runtimeScene, 0, "UI", 0), "UI");
+{runtimeScene.getVariables().getFromIndex(2).setNumber(gdjs.evtTools.input.getStartedTouchIdentifier(runtimeScene, 0));
+}{gdjs.evtTools.object.createObjectOnScene((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : runtimeScene), gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDJoystickOuterObjects3Objects, gdjs.evtTools.input.getTouchX(runtimeScene, gdjs.evtTools.variable.getVariableNumber(runtimeScene.getVariables().getFromIndex(2)), "UI", 0), gdjs.evtTools.input.getTouchY(runtimeScene, gdjs.evtTools.variable.getVariableNumber(runtimeScene.getVariables().getFromIndex(2)), "UI", 0), "UI");
 }}
 
 }
@@ -529,7 +530,7 @@ gdjs.GameCode.GDJoystickOuterObjects3.length = 0;
 
 gdjs.GameCode.condition0IsTrue_0.val = false;
 {
-gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.input.hasTouchEnded(runtimeScene, 0);
+gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.input.hasTouchEnded(runtimeScene, gdjs.evtTools.variable.getVariableNumber(runtimeScene.getVariables().getFromIndex(2)));
 }if (gdjs.GameCode.condition0IsTrue_0.val) {
 gdjs.copyArray(runtimeScene.getObjects("JoystickOuter"), gdjs.GameCode.GDJoystickOuterObjects2);
 gdjs.copyArray(runtimeScene.getObjects("ThumbCircle"), gdjs.GameCode.GDThumbCircleObjects2);
