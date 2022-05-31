@@ -59,22 +59,19 @@ gdjs.GameCode.GDHammerBorderObjects1= [];
 gdjs.GameCode.GDHammerBorderObjects2= [];
 gdjs.GameCode.GDHammerBorderObjects3= [];
 gdjs.GameCode.GDHammerBorderObjects4= [];
+gdjs.GameCode.GDJoystickOuterObjects1= [];
+gdjs.GameCode.GDJoystickOuterObjects2= [];
+gdjs.GameCode.GDJoystickOuterObjects3= [];
+gdjs.GameCode.GDJoystickOuterObjects4= [];
 
 gdjs.GameCode.conditionTrue_0 = {val:false};
 gdjs.GameCode.condition0IsTrue_0 = {val:false};
 gdjs.GameCode.condition1IsTrue_0 = {val:false};
 gdjs.GameCode.condition2IsTrue_0 = {val:false};
-gdjs.GameCode.condition3IsTrue_0 = {val:false};
 gdjs.GameCode.conditionTrue_1 = {val:false};
 gdjs.GameCode.condition0IsTrue_1 = {val:false};
 gdjs.GameCode.condition1IsTrue_1 = {val:false};
 gdjs.GameCode.condition2IsTrue_1 = {val:false};
-gdjs.GameCode.condition3IsTrue_1 = {val:false};
-gdjs.GameCode.conditionTrue_2 = {val:false};
-gdjs.GameCode.condition0IsTrue_2 = {val:false};
-gdjs.GameCode.condition1IsTrue_2 = {val:false};
-gdjs.GameCode.condition2IsTrue_2 = {val:false};
-gdjs.GameCode.condition3IsTrue_2 = {val:false};
 
 
 gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDHammerObjects1Objects = Hashtable.newFrom({"Hammer": gdjs.GameCode.GDHammerObjects1});
@@ -451,7 +448,7 @@ gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.input.isMouseButtonPressed(
 gdjs.GameCode.condition0IsTrue_0.val = false;
 {
 {gdjs.GameCode.conditionTrue_1 = gdjs.GameCode.condition0IsTrue_0;
-gdjs.GameCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(9258316);
+gdjs.GameCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(9713804);
 }
 }if (gdjs.GameCode.condition0IsTrue_0.val) {
 {gdjs.evtTools.sound.playSound(runtimeScene, "mixkit-sad-game-over-trombone-471.wav", false, 100, 1);
@@ -503,8 +500,52 @@ gdjs.GameCode.eventsList6(runtimeScene);} //End of subevents
 }
 
 
-};gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDThumbCircleObjects2Objects = Hashtable.newFrom({"ThumbCircle": gdjs.GameCode.GDThumbCircleObjects2});
+};gdjs.GameCode.mapOfEmptyGDJoystickOuterObjects = Hashtable.newFrom({"JoystickOuter": []});
+gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDJoystickOuterObjects3Objects = Hashtable.newFrom({"JoystickOuter": gdjs.GameCode.GDJoystickOuterObjects3});
 gdjs.GameCode.eventsList8 = function(runtimeScene) {
+
+{
+
+
+gdjs.GameCode.condition0IsTrue_0.val = false;
+gdjs.GameCode.condition1IsTrue_0.val = false;
+{
+gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.input.hasAnyTouchStarted(runtimeScene);
+}if ( gdjs.GameCode.condition0IsTrue_0.val ) {
+{
+gdjs.GameCode.condition1IsTrue_0.val = gdjs.evtTools.object.getSceneInstancesCount((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : runtimeScene), gdjs.GameCode.mapOfEmptyGDJoystickOuterObjects) == 0;
+}}
+if (gdjs.GameCode.condition1IsTrue_0.val) {
+gdjs.GameCode.GDJoystickOuterObjects3.length = 0;
+
+{gdjs.evtTools.object.createObjectOnScene((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : runtimeScene), gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDJoystickOuterObjects3Objects, gdjs.evtTools.input.getTouchX(runtimeScene, 0, "UI", 0), gdjs.evtTools.input.getTouchY(runtimeScene, 0, "UI", 0), "UI");
+}}
+
+}
+
+
+{
+
+
+gdjs.GameCode.condition0IsTrue_0.val = false;
+{
+gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.input.hasTouchEnded(runtimeScene, 0);
+}if (gdjs.GameCode.condition0IsTrue_0.val) {
+gdjs.copyArray(runtimeScene.getObjects("JoystickOuter"), gdjs.GameCode.GDJoystickOuterObjects2);
+gdjs.copyArray(runtimeScene.getObjects("ThumbCircle"), gdjs.GameCode.GDThumbCircleObjects2);
+{for(var i = 0, len = gdjs.GameCode.GDJoystickOuterObjects2.length ;i < len;++i) {
+    gdjs.GameCode.GDJoystickOuterObjects2[i].deleteFromScene(runtimeScene);
+}
+}{for(var i = 0, len = gdjs.GameCode.GDThumbCircleObjects2.length ;i < len;++i) {
+    gdjs.GameCode.GDThumbCircleObjects2[i].deleteFromScene(runtimeScene);
+}
+}}
+
+}
+
+
+};gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDThumbCircleObjects2Objects = Hashtable.newFrom({"ThumbCircle": gdjs.GameCode.GDThumbCircleObjects2});
+gdjs.GameCode.eventsList9 = function(runtimeScene) {
 
 {
 
@@ -638,36 +679,36 @@ gdjs.copyArray(runtimeScene.getObjects("Player"), gdjs.GameCode.GDPlayerObjects2
 }
 
 
-};gdjs.GameCode.eventsList9 = function(runtimeScene) {
-
-{
-
-
-gdjs.GameCode.eventsList8(runtimeScene);
-}
-
-
 };gdjs.GameCode.eventsList10 = function(runtimeScene) {
 
 {
 
-gdjs.copyArray(gdjs.GameCode.GDJoystickObjects2, gdjs.GameCode.GDJoystickObjects3);
+
+gdjs.GameCode.eventsList9(runtimeScene);
+}
+
+
+};gdjs.GameCode.eventsList11 = function(runtimeScene) {
+
+{
+
+gdjs.copyArray(gdjs.GameCode.GDJoystickOuterObjects2, gdjs.GameCode.GDJoystickOuterObjects3);
 
 
 gdjs.GameCode.condition0IsTrue_0.val = false;
 {
-for(var i = 0, k = 0, l = gdjs.GameCode.GDJoystickObjects3.length;i<l;++i) {
-    if ( gdjs.GameCode.GDJoystickObjects3[i].getBehavior("MultitouchJoystick").IsPressed((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) ) {
+for(var i = 0, k = 0, l = gdjs.GameCode.GDJoystickOuterObjects3.length;i<l;++i) {
+    if ( gdjs.GameCode.GDJoystickOuterObjects3[i].getBehavior("MultitouchJoystick").IsPressed((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined)) ) {
         gdjs.GameCode.condition0IsTrue_0.val = true;
-        gdjs.GameCode.GDJoystickObjects3[k] = gdjs.GameCode.GDJoystickObjects3[i];
+        gdjs.GameCode.GDJoystickOuterObjects3[k] = gdjs.GameCode.GDJoystickOuterObjects3[i];
         ++k;
     }
 }
-gdjs.GameCode.GDJoystickObjects3.length = k;}if (gdjs.GameCode.condition0IsTrue_0.val) {
-/* Reuse gdjs.GameCode.GDJoystickObjects3 */
+gdjs.GameCode.GDJoystickOuterObjects3.length = k;}if (gdjs.GameCode.condition0IsTrue_0.val) {
+/* Reuse gdjs.GameCode.GDJoystickOuterObjects3 */
 gdjs.copyArray(runtimeScene.getObjects("Player"), gdjs.GameCode.GDPlayerObjects3);
 {for(var i = 0, len = gdjs.GameCode.GDPlayerObjects3.length ;i < len;++i) {
-    gdjs.GameCode.GDPlayerObjects3[i].getBehavior("Physics2").applyPolarForce((( gdjs.GameCode.GDJoystickObjects3.length === 0 ) ? 0 :gdjs.GameCode.GDJoystickObjects3[0].getBehavior("MultitouchJoystick").JoystickAngle((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined))), gdjs.evtTools.variable.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(0)), 0, 0);
+    gdjs.GameCode.GDPlayerObjects3[i].getBehavior("Physics2").applyPolarForce((( gdjs.GameCode.GDJoystickOuterObjects3.length === 0 ) ? 0 :gdjs.GameCode.GDJoystickOuterObjects3[0].getBehavior("MultitouchJoystick").JoystickAngle((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined))), gdjs.evtTools.variable.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(0)), 0, 0);
 }
 }}
 
@@ -676,29 +717,51 @@ gdjs.copyArray(runtimeScene.getObjects("Player"), gdjs.GameCode.GDPlayerObjects3
 
 {
 
-/* Reuse gdjs.GameCode.GDJoystickObjects2 */
+/* Reuse gdjs.GameCode.GDJoystickOuterObjects2 */
 
 gdjs.GameCode.condition0IsTrue_0.val = false;
 {
-for(var i = 0, k = 0, l = gdjs.GameCode.GDJoystickObjects2.length;i<l;++i) {
-    if ( !(gdjs.GameCode.GDJoystickObjects2[i].getBehavior("MultitouchJoystick").IsPressed((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined))) ) {
+for(var i = 0, k = 0, l = gdjs.GameCode.GDJoystickOuterObjects2.length;i<l;++i) {
+    if ( !(gdjs.GameCode.GDJoystickOuterObjects2[i].getBehavior("MultitouchJoystick").IsPressed((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined))) ) {
         gdjs.GameCode.condition0IsTrue_0.val = true;
-        gdjs.GameCode.GDJoystickObjects2[k] = gdjs.GameCode.GDJoystickObjects2[i];
+        gdjs.GameCode.GDJoystickOuterObjects2[k] = gdjs.GameCode.GDJoystickOuterObjects2[i];
         ++k;
     }
 }
-gdjs.GameCode.GDJoystickObjects2.length = k;}if (gdjs.GameCode.condition0IsTrue_0.val) {
+gdjs.GameCode.GDJoystickOuterObjects2.length = k;}if (gdjs.GameCode.condition0IsTrue_0.val) {
 
 { //Subevents
-gdjs.GameCode.eventsList9(runtimeScene);} //End of subevents
+gdjs.GameCode.eventsList10(runtimeScene);} //End of subevents
 }
 
 }
 
 
-};gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDThumbCircleObjects2Objects = Hashtable.newFrom({"ThumbCircle": gdjs.GameCode.GDThumbCircleObjects2});
+};gdjs.GameCode.mapOfEmptyGDJoystickOuterObjects = Hashtable.newFrom({"JoystickOuter": []});
+gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDJoystickOuterObjects2Objects = Hashtable.newFrom({"JoystickOuter": gdjs.GameCode.GDJoystickOuterObjects2});
+gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDThumbCircleObjects2Objects = Hashtable.newFrom({"ThumbCircle": gdjs.GameCode.GDThumbCircleObjects2});
 gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDThumbCircleObjects1Objects = Hashtable.newFrom({"ThumbCircle": gdjs.GameCode.GDThumbCircleObjects1});
-gdjs.GameCode.eventsList11 = function(runtimeScene) {
+gdjs.GameCode.eventsList12 = function(runtimeScene) {
+
+{
+
+
+gdjs.GameCode.condition0IsTrue_0.val = false;
+gdjs.GameCode.condition1IsTrue_0.val = false;
+{
+gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.object.getSceneInstancesCount((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : runtimeScene), gdjs.GameCode.mapOfEmptyGDJoystickOuterObjects) == 0;
+}if ( gdjs.GameCode.condition0IsTrue_0.val ) {
+{
+gdjs.GameCode.condition1IsTrue_0.val = gdjs.evtTools.input.isMouseButtonPressed(runtimeScene, "Left");
+}}
+if (gdjs.GameCode.condition1IsTrue_0.val) {
+gdjs.GameCode.GDJoystickOuterObjects2.length = 0;
+
+{gdjs.evtTools.object.createObjectOnScene((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : runtimeScene), gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDJoystickOuterObjects2Objects, gdjs.evtTools.input.getMouseX(runtimeScene, "UI", 0), gdjs.evtTools.input.getMouseY(runtimeScene, "UI", 0), "UI");
+}}
+
+}
+
 
 {
 
@@ -707,10 +770,10 @@ gdjs.GameCode.condition0IsTrue_0.val = false;
 {
 gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.input.isMouseButtonPressed(runtimeScene, "Left");
 }if (gdjs.GameCode.condition0IsTrue_0.val) {
-gdjs.copyArray(runtimeScene.getObjects("Joystick"), gdjs.GameCode.GDJoystickObjects2);
+gdjs.copyArray(runtimeScene.getObjects("JoystickOuter"), gdjs.GameCode.GDJoystickOuterObjects2);
 gdjs.copyArray(runtimeScene.getObjects("ThumbCircle"), gdjs.GameCode.GDThumbCircleObjects2);
-{for(var i = 0, len = gdjs.GameCode.GDJoystickObjects2.length ;i < len;++i) {
-    gdjs.GameCode.GDJoystickObjects2[i].getBehavior("MultitouchJoystick").SimulateTouch_Position(gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDThumbCircleObjects2Objects, gdjs.evtTools.input.getMouseX(runtimeScene, "UI", 0), gdjs.evtTools.input.getMouseY(runtimeScene, "UI", 0), (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
+{for(var i = 0, len = gdjs.GameCode.GDJoystickOuterObjects2.length ;i < len;++i) {
+    gdjs.GameCode.GDJoystickOuterObjects2[i].getBehavior("MultitouchJoystick").SimulateTouch_Position(gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDThumbCircleObjects2Objects, gdjs.evtTools.input.getMouseX(runtimeScene, "UI", 0), gdjs.evtTools.input.getMouseY(runtimeScene, "UI", 0), (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
 }
 }}
 
@@ -724,17 +787,38 @@ gdjs.GameCode.condition0IsTrue_0.val = false;
 {
 gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.input.isMouseButtonReleased(runtimeScene, "Left");
 }if (gdjs.GameCode.condition0IsTrue_0.val) {
-gdjs.copyArray(runtimeScene.getObjects("Joystick"), gdjs.GameCode.GDJoystickObjects1);
+gdjs.copyArray(runtimeScene.getObjects("JoystickOuter"), gdjs.GameCode.GDJoystickOuterObjects1);
 gdjs.copyArray(runtimeScene.getObjects("ThumbCircle"), gdjs.GameCode.GDThumbCircleObjects1);
-{for(var i = 0, len = gdjs.GameCode.GDJoystickObjects1.length ;i < len;++i) {
-    gdjs.GameCode.GDJoystickObjects1[i].getBehavior("MultitouchJoystick").SimulateTouchEnded(gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDThumbCircleObjects1Objects, (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
+{for(var i = 0, len = gdjs.GameCode.GDJoystickOuterObjects1.length ;i < len;++i) {
+    gdjs.GameCode.GDJoystickOuterObjects1[i].getBehavior("MultitouchJoystick").SimulateTouchEnded(gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDThumbCircleObjects1Objects, (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
+}
+}{for(var i = 0, len = gdjs.GameCode.GDJoystickOuterObjects1.length ;i < len;++i) {
+    gdjs.GameCode.GDJoystickOuterObjects1[i].deleteFromScene(runtimeScene);
+}
+}{for(var i = 0, len = gdjs.GameCode.GDThumbCircleObjects1.length ;i < len;++i) {
+    gdjs.GameCode.GDThumbCircleObjects1[i].deleteFromScene(runtimeScene);
 }
 }}
 
 }
 
 
-};gdjs.GameCode.eventsList12 = function(runtimeScene) {
+};gdjs.GameCode.eventsList13 = function(runtimeScene) {
+
+{
+
+
+gdjs.GameCode.condition0IsTrue_0.val = false;
+{
+gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.systemInfo.hasTouchScreen(runtimeScene);
+}if (gdjs.GameCode.condition0IsTrue_0.val) {
+
+{ //Subevents
+gdjs.GameCode.eventsList8(runtimeScene);} //End of subevents
+}
+
+}
+
 
 {
 
@@ -743,14 +827,14 @@ gdjs.GameCode.condition0IsTrue_0.val = false;
 {
 gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.variable.getVariableBoolean(runtimeScene.getVariables().getFromIndex(1), true);
 }if (gdjs.GameCode.condition0IsTrue_0.val) {
-gdjs.copyArray(runtimeScene.getObjects("Joystick"), gdjs.GameCode.GDJoystickObjects2);
+gdjs.copyArray(runtimeScene.getObjects("JoystickOuter"), gdjs.GameCode.GDJoystickOuterObjects2);
 gdjs.copyArray(runtimeScene.getObjects("ThumbCircle"), gdjs.GameCode.GDThumbCircleObjects2);
-{for(var i = 0, len = gdjs.GameCode.GDJoystickObjects2.length ;i < len;++i) {
-    gdjs.GameCode.GDJoystickObjects2[i].getBehavior("MultitouchJoystick").ActivateJoystick(gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDThumbCircleObjects2Objects, (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
+{for(var i = 0, len = gdjs.GameCode.GDJoystickOuterObjects2.length ;i < len;++i) {
+    gdjs.GameCode.GDJoystickOuterObjects2[i].getBehavior("MultitouchJoystick").ActivateJoystick(gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDThumbCircleObjects2Objects, (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
 }
 }
 { //Subevents
-gdjs.GameCode.eventsList10(runtimeScene);} //End of subevents
+gdjs.GameCode.eventsList11(runtimeScene);} //End of subevents
 }
 
 }
@@ -765,64 +849,20 @@ gdjs.GameCode.condition0IsTrue_0.val = !(gdjs.evtTools.systemInfo.hasTouchScreen
 }if (gdjs.GameCode.condition0IsTrue_0.val) {
 
 { //Subevents
-gdjs.GameCode.eventsList11(runtimeScene);} //End of subevents
+gdjs.GameCode.eventsList12(runtimeScene);} //End of subevents
 }
 
 }
 
 
-};gdjs.GameCode.eventsList13 = function(runtimeScene) {
+};gdjs.GameCode.eventsList14 = function(runtimeScene) {
 
 {
 
 
 gdjs.GameCode.condition0IsTrue_0.val = false;
 {
-{gdjs.GameCode.conditionTrue_1 = gdjs.GameCode.condition0IsTrue_0;
-gdjs.GameCode.condition0IsTrue_1.val = false;
-gdjs.GameCode.condition1IsTrue_1.val = false;
-gdjs.GameCode.condition2IsTrue_1.val = false;
-{
-gdjs.GameCode.condition0IsTrue_1.val = gdjs.evtTools.input.isKeyPressed(runtimeScene, "r");
-if( gdjs.GameCode.condition0IsTrue_1.val ) {
-    gdjs.GameCode.conditionTrue_1.val = true;
-}
-}
-{
-{gdjs.GameCode.conditionTrue_2 = gdjs.GameCode.condition1IsTrue_1;
-gdjs.GameCode.condition0IsTrue_2.val = false;
-gdjs.GameCode.condition1IsTrue_2.val = false;
-{
-gdjs.GameCode.condition0IsTrue_2.val = gdjs.evtTools.input.isMouseButtonReleased(runtimeScene, "Left");
-}if ( gdjs.GameCode.condition0IsTrue_2.val ) {
-{
-gdjs.GameCode.condition1IsTrue_2.val = gdjs.evtTools.variable.getVariableBoolean(runtimeScene.getGame().getVariables().get("isRestartTap"), true);
-}}
-gdjs.GameCode.conditionTrue_2.val = true && gdjs.GameCode.condition0IsTrue_2.val && gdjs.GameCode.condition1IsTrue_2.val;
-}
-if( gdjs.GameCode.condition1IsTrue_1.val ) {
-    gdjs.GameCode.conditionTrue_1.val = true;
-}
-}
-{
-{gdjs.GameCode.conditionTrue_2 = gdjs.GameCode.condition2IsTrue_1;
-gdjs.GameCode.condition0IsTrue_2.val = false;
-gdjs.GameCode.condition1IsTrue_2.val = false;
-{
-gdjs.GameCode.condition0IsTrue_2.val = gdjs.evtTools.input.hasTouchEnded(runtimeScene, 0);
-}if ( gdjs.GameCode.condition0IsTrue_2.val ) {
-{
-gdjs.GameCode.condition1IsTrue_2.val = gdjs.evtTools.variable.getVariableBoolean(runtimeScene.getGame().getVariables().get("isRestartTap"), true);
-}}
-gdjs.GameCode.conditionTrue_2.val = true && gdjs.GameCode.condition0IsTrue_2.val && gdjs.GameCode.condition1IsTrue_2.val;
-}
-if( gdjs.GameCode.condition2IsTrue_1.val ) {
-    gdjs.GameCode.conditionTrue_1.val = true;
-}
-}
-{
-}
-}
+gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.input.isKeyPressed(runtimeScene, "r");
 }if (gdjs.GameCode.condition0IsTrue_0.val) {
 {gdjs.evtTools.runtimeScene.replaceScene(runtimeScene, "Level 1", true);
 }}
@@ -830,7 +870,7 @@ if( gdjs.GameCode.condition2IsTrue_1.val ) {
 }
 
 
-};gdjs.GameCode.eventsList14 = function(runtimeScene) {
+};gdjs.GameCode.eventsList15 = function(runtimeScene) {
 
 {
 
@@ -863,7 +903,7 @@ gdjs.GameCode.eventsList7(runtimeScene);
 {
 
 
-gdjs.GameCode.eventsList12(runtimeScene);
+gdjs.GameCode.eventsList13(runtimeScene);
 }
 
 
@@ -876,7 +916,7 @@ gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.variable.getVariableBoolean
 }if (gdjs.GameCode.condition0IsTrue_0.val) {
 
 { //Subevents
-gdjs.GameCode.eventsList13(runtimeScene);} //End of subevents
+gdjs.GameCode.eventsList14(runtimeScene);} //End of subevents
 }
 
 }
@@ -977,8 +1017,12 @@ gdjs.GameCode.GDHammerBorderObjects1.length = 0;
 gdjs.GameCode.GDHammerBorderObjects2.length = 0;
 gdjs.GameCode.GDHammerBorderObjects3.length = 0;
 gdjs.GameCode.GDHammerBorderObjects4.length = 0;
+gdjs.GameCode.GDJoystickOuterObjects1.length = 0;
+gdjs.GameCode.GDJoystickOuterObjects2.length = 0;
+gdjs.GameCode.GDJoystickOuterObjects3.length = 0;
+gdjs.GameCode.GDJoystickOuterObjects4.length = 0;
 
-gdjs.GameCode.eventsList14(runtimeScene);
+gdjs.GameCode.eventsList15(runtimeScene);
 return;
 
 }
