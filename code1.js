@@ -109,7 +109,7 @@ gdjs.copyArray(runtimeScene.getObjects("InputPlayerName"), gdjs.MenuCode.GDInput
 gdjs.MenuCode.condition0IsTrue_0.val = false;
 {
 for(var i = 0, k = 0, l = gdjs.MenuCode.GDInputPlayerNameObjects4.length;i<l;++i) {
-    if ( gdjs.MenuCode.GDInputPlayerNameObjects4[i].getString() != "" ) {
+    if ( !(gdjs.MenuCode.GDInputPlayerNameObjects4[i].getString() == "") ) {
         gdjs.MenuCode.condition0IsTrue_0.val = true;
         gdjs.MenuCode.GDInputPlayerNameObjects4[k] = gdjs.MenuCode.GDInputPlayerNameObjects4[i];
         ++k;
@@ -125,12 +125,19 @@ gdjs.MenuCode.GDInputPlayerNameObjects4.length = k;}if (gdjs.MenuCode.condition0
 
 {
 
+gdjs.copyArray(runtimeScene.getObjects("InputPlayerName"), gdjs.MenuCode.GDInputPlayerNameObjects3);
 
 gdjs.MenuCode.condition0IsTrue_0.val = false;
 {
-gdjs.MenuCode.condition0IsTrue_0.val = gdjs.evtTools.variable.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(5)) == 0;
-}if (gdjs.MenuCode.condition0IsTrue_0.val) {
-{runtimeScene.getGame().getVariables().getFromIndex(5).setString(gdjs.evtTools.variable.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(7)));
+for(var i = 0, k = 0, l = gdjs.MenuCode.GDInputPlayerNameObjects3.length;i<l;++i) {
+    if ( gdjs.MenuCode.GDInputPlayerNameObjects3[i].getString() == "" ) {
+        gdjs.MenuCode.condition0IsTrue_0.val = true;
+        gdjs.MenuCode.GDInputPlayerNameObjects3[k] = gdjs.MenuCode.GDInputPlayerNameObjects3[i];
+        ++k;
+    }
+}
+gdjs.MenuCode.GDInputPlayerNameObjects3.length = k;}if (gdjs.MenuCode.condition0IsTrue_0.val) {
+{runtimeScene.getGame().getVariables().getFromIndex(5).setString(gdjs.evtTools.variable.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(6)));
 }}
 
 }
