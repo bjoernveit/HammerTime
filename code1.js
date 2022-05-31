@@ -59,6 +59,11 @@ gdjs.MenuCode.GDLastTimeObjects2= [];
 gdjs.MenuCode.GDLastTimeObjects3= [];
 gdjs.MenuCode.GDLastTimeObjects4= [];
 gdjs.MenuCode.GDLastTimeObjects5= [];
+gdjs.MenuCode.GDGameVersionObjects1= [];
+gdjs.MenuCode.GDGameVersionObjects2= [];
+gdjs.MenuCode.GDGameVersionObjects3= [];
+gdjs.MenuCode.GDGameVersionObjects4= [];
+gdjs.MenuCode.GDGameVersionObjects5= [];
 
 gdjs.MenuCode.conditionTrue_0 = {val:false};
 gdjs.MenuCode.condition0IsTrue_0 = {val:false};
@@ -323,6 +328,11 @@ gdjs.MenuCode.GDLastTimeObjects2.length = 0;
 gdjs.MenuCode.GDLastTimeObjects3.length = 0;
 gdjs.MenuCode.GDLastTimeObjects4.length = 0;
 gdjs.MenuCode.GDLastTimeObjects5.length = 0;
+gdjs.MenuCode.GDGameVersionObjects1.length = 0;
+gdjs.MenuCode.GDGameVersionObjects2.length = 0;
+gdjs.MenuCode.GDGameVersionObjects3.length = 0;
+gdjs.MenuCode.GDGameVersionObjects4.length = 0;
+gdjs.MenuCode.GDGameVersionObjects5.length = 0;
 
 gdjs.MenuCode.eventsList4(runtimeScene);
 return;
