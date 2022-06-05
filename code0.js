@@ -222,8 +222,8 @@ gdjs.GameCode.GDEmitterBloodObjects1.length = 0;
 }
 
 
-};gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDPlayerObjects1Objects = Hashtable.newFrom({"Player": gdjs.GameCode.GDPlayerObjects1});
-gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDCoinObjects1Objects = Hashtable.newFrom({"Coin": gdjs.GameCode.GDCoinObjects1});
+};gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDPlayerObjects2Objects = Hashtable.newFrom({"Player": gdjs.GameCode.GDPlayerObjects2});
+gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDCoinObjects2Objects = Hashtable.newFrom({"Coin": gdjs.GameCode.GDCoinObjects2});
 gdjs.GameCode.eventsList3 = function(runtimeScene) {
 
 {
@@ -244,22 +244,31 @@ gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.variable.getVariableNumber(
 
 {
 
-gdjs.copyArray(runtimeScene.getObjects("Coin"), gdjs.GameCode.GDCoinObjects1);
-gdjs.copyArray(runtimeScene.getObjects("Player"), gdjs.GameCode.GDPlayerObjects1);
+gdjs.copyArray(runtimeScene.getObjects("Coin"), gdjs.GameCode.GDCoinObjects2);
+gdjs.copyArray(runtimeScene.getObjects("Player"), gdjs.GameCode.GDPlayerObjects2);
 
 gdjs.GameCode.condition0IsTrue_0.val = false;
 {
-gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.object.hitBoxesCollisionTest(gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDPlayerObjects1Objects, gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDCoinObjects1Objects, false, runtimeScene, false);
+gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.object.hitBoxesCollisionTest(gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDPlayerObjects2Objects, gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDCoinObjects2Objects, false, runtimeScene, false);
 }if (gdjs.GameCode.condition0IsTrue_0.val) {
-/* Reuse gdjs.GameCode.GDCoinObjects1 */
-{for(var i = 0, len = gdjs.GameCode.GDCoinObjects1.length ;i < len;++i) {
-    gdjs.GameCode.GDCoinObjects1[i].deleteFromScene(runtimeScene);
+/* Reuse gdjs.GameCode.GDCoinObjects2 */
+{for(var i = 0, len = gdjs.GameCode.GDCoinObjects2.length ;i < len;++i) {
+    gdjs.GameCode.GDCoinObjects2[i].deleteFromScene(runtimeScene);
 }
 }{gdjs.evtTools.runtimeScene.resetTimer(runtimeScene, "coinSpawnTimer");
 }{runtimeScene.getVariables().getFromIndex(3).add(1);
 }
 { //Subevents
 gdjs.GameCode.eventsList3(runtimeScene);} //End of subevents
+}
+
+}
+
+
+{
+
+
+{
 }
 
 }
@@ -600,7 +609,7 @@ gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.input.isMouseButtonPressed(
 gdjs.GameCode.condition0IsTrue_0.val = false;
 {
 {gdjs.GameCode.conditionTrue_1 = gdjs.GameCode.condition0IsTrue_0;
-gdjs.GameCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(9592964);
+gdjs.GameCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(9648732);
 }
 }if (gdjs.GameCode.condition0IsTrue_0.val) {
 {gdjs.evtTools.sound.playSound(runtimeScene, "mixkit-sad-game-over-trombone-471.wav", false, 100, 1);
@@ -863,7 +872,7 @@ gdjs.GameCode.GDJoystickOuterObjects3.length = k;}if (gdjs.GameCode.condition0Is
 /* Reuse gdjs.GameCode.GDJoystickOuterObjects3 */
 gdjs.copyArray(runtimeScene.getObjects("Player"), gdjs.GameCode.GDPlayerObjects3);
 {for(var i = 0, len = gdjs.GameCode.GDPlayerObjects3.length ;i < len;++i) {
-    gdjs.GameCode.GDPlayerObjects3[i].getBehavior("Physics2").applyPolarForce((( gdjs.GameCode.GDJoystickOuterObjects3.length === 0 ) ? 0 :gdjs.GameCode.GDJoystickOuterObjects3[0].getBehavior("MultitouchJoystick").JoystickAngle((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined))), gdjs.evtTools.variable.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(0)), 0, 0);
+    gdjs.GameCode.GDPlayerObjects3[i].getBehavior("Physics2").applyPolarForce((( gdjs.GameCode.GDJoystickOuterObjects3.length === 0 ) ? 0 :gdjs.GameCode.GDJoystickOuterObjects3[0].getBehavior("MultitouchJoystick").JoystickAngle((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined))), gdjs.evtTools.variable.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(0)) * (( gdjs.GameCode.GDJoystickOuterObjects3.length === 0 ) ? 0 :gdjs.GameCode.GDJoystickOuterObjects3[0].getBehavior("MultitouchJoystick").JoystickForce((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined))), 0, 0);
 }
 }}
 
