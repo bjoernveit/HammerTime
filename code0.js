@@ -101,12 +101,15 @@ gdjs.GameCode.condition2IsTrue_1 = {val:false};
 
 
 gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDHammerObjects1Objects = Hashtable.newFrom({"Hammer": gdjs.GameCode.GDHammerObjects1});
+gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDCoinObjects1Objects = Hashtable.newFrom({"Coin": gdjs.GameCode.GDCoinObjects1});
 gdjs.GameCode.eventsList0 = function(runtimeScene) {
 
 {
 
 
 {
+gdjs.GameCode.GDCoinObjects1.length = 0;
+
 gdjs.GameCode.GDHammerObjects1.length = 0;
 
 {gdjs.evtTools.object.createObjectOnScene((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : runtimeScene), gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDHammerObjects1Objects, gdjs.randomInRange(100, 700), gdjs.randomInRange(100, 500), "");
@@ -125,6 +128,8 @@ gdjs.GameCode.GDHammerObjects1.length = 0;
 }{for(var i = 0, len = gdjs.GameCode.GDHammerObjects1.length ;i < len;++i) {
     gdjs.GameCode.GDHammerObjects1[i].resetTimer("AliveFor");
 }
+}{gdjs.evtTools.object.createObjectOnScene((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : runtimeScene), gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDCoinObjects1Objects, gdjs.randomInRange(100, 700), gdjs.randomInRange(100, 500), "");
+}{gdjs.evtTools.runtimeScene.resetTimer(runtimeScene, "noCoinSpawnedSince");
 }}
 
 }
@@ -250,6 +255,7 @@ gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.object.hitBoxesCollisionTes
 {for(var i = 0, len = gdjs.GameCode.GDCoinObjects1.length ;i < len;++i) {
     gdjs.GameCode.GDCoinObjects1[i].deleteFromScene(runtimeScene);
 }
+}{gdjs.evtTools.runtimeScene.resetTimer(runtimeScene, "coinSpawnTimer");
 }{runtimeScene.getVariables().getFromIndex(3).add(1);
 }
 { //Subevents
@@ -298,7 +304,8 @@ gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.variable.getVariableBoolean
 }
 
 
-};gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDCoinObjects2Objects = Hashtable.newFrom({"Coin": gdjs.GameCode.GDCoinObjects2});
+};gdjs.GameCode.mapOfEmptyGDCoinObjects = Hashtable.newFrom({"Coin": []});
+gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDCoinObjects2Objects = Hashtable.newFrom({"Coin": gdjs.GameCode.GDCoinObjects2});
 gdjs.GameCode.eventsList6 = function(runtimeScene) {
 
 {
@@ -385,14 +392,17 @@ gdjs.GameCode.eventsList5(runtimeScene);} //End of subevents
 
 
 gdjs.GameCode.condition0IsTrue_0.val = false;
+gdjs.GameCode.condition1IsTrue_0.val = false;
 {
-gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtsExt__RepeatEveryXSeconds__Repeat.func(runtimeScene, "CoinSpawn", gdjs.evtTools.variable.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(7).getChild(gdjs.evtTools.variable.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(8))).getChild("COIN_SPAWN_TIME")), (typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : undefined));
-}if (gdjs.GameCode.condition0IsTrue_0.val) {
-gdjs.copyArray(runtimeScene.getObjects("Coin"), gdjs.GameCode.GDCoinObjects2);
-{for(var i = 0, len = gdjs.GameCode.GDCoinObjects2.length ;i < len;++i) {
-    gdjs.GameCode.GDCoinObjects2[i].deleteFromScene(runtimeScene);
-}
-}{gdjs.evtTools.object.createObjectOnScene((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : runtimeScene), gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDCoinObjects2Objects, gdjs.randomFloatInRange(100, 700), gdjs.randomFloatInRange(100, 500), "");
+gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.object.getSceneInstancesCount((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : runtimeScene), gdjs.GameCode.mapOfEmptyGDCoinObjects) == 0;
+}if ( gdjs.GameCode.condition0IsTrue_0.val ) {
+{
+gdjs.GameCode.condition1IsTrue_0.val = gdjs.evtTools.runtimeScene.getTimerElapsedTimeInSecondsOrNaN(runtimeScene, "coinSpawnTimer") > gdjs.evtTools.variable.getVariableNumber(runtimeScene.getGame().getVariables().getFromIndex(7).getChild(gdjs.evtTools.variable.getVariableString(runtimeScene.getGame().getVariables().getFromIndex(8))).getChild("COIN_SPAWN_TIME"));
+}}
+if (gdjs.GameCode.condition1IsTrue_0.val) {
+gdjs.GameCode.GDCoinObjects2.length = 0;
+
+{gdjs.evtTools.object.createObjectOnScene((typeof eventsFunctionContext !== 'undefined' ? eventsFunctionContext : runtimeScene), gdjs.GameCode.mapOfGDgdjs_46GameCode_46GDCoinObjects2Objects, gdjs.randomFloatInRange(100, 700), gdjs.randomFloatInRange(100, 500), "");
 }}
 
 }
@@ -590,7 +600,7 @@ gdjs.GameCode.condition0IsTrue_0.val = gdjs.evtTools.input.isMouseButtonPressed(
 gdjs.GameCode.condition0IsTrue_0.val = false;
 {
 {gdjs.GameCode.conditionTrue_1 = gdjs.GameCode.condition0IsTrue_0;
-gdjs.GameCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(9515428);
+gdjs.GameCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(9592964);
 }
 }if (gdjs.GameCode.condition0IsTrue_0.val) {
 {gdjs.evtTools.sound.playSound(runtimeScene, "mixkit-sad-game-over-trombone-471.wav", false, 100, 1);
